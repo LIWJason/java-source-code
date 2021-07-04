@@ -12,14 +12,14 @@ public class Test {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
 
                 2,
-                2,
+                3,
                 5,
                 TimeUnit.SECONDS,
-                new ArrayBlockingQueue<Runnable>(2),
+                new ArrayBlockingQueue<Runnable>(1),
                 Executors.defaultThreadFactory(),
                 new ThreadPoolExecutor.AbortPolicy());
 
-        for (int i =0; i < 6; i ++) {
+        for (int i =0; i < 10; i ++) {
             try {
                 threadPoolExecutor.execute(new TestRunnable());
             } catch (Exception e) {
@@ -40,7 +40,7 @@ public class Test {
         @Override
         public void run() {
             try {
-                Thread.sleep(5000);
+                Thread.sleep(10000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
