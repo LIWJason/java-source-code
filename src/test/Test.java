@@ -19,9 +19,10 @@ public class Test {
                 Executors.defaultThreadFactory(),
                 new ThreadPoolExecutor.AbortPolicy());
 
-        for (int i =0; i < 10; i ++) {
+        for (int i =0; i < 5; i ++) {
             try {
                 threadPoolExecutor.execute(new TestRunnable());
+                threadPoolExecutor.submit(new TestRunnable());
             } catch (Exception e) {
                 System.out.println(e);
             }
