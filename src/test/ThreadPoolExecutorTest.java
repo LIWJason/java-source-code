@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-public class Test {
+public class ThreadPoolExecutorTest {
 
 
     public static void main(String[] args) {
@@ -22,7 +22,6 @@ public class Test {
         for (int i =0; i < 5; i ++) {
             try {
                 threadPoolExecutor.execute(new TestRunnable());
-                threadPoolExecutor.submit(new TestRunnable());
             } catch (Exception e) {
                 System.out.println(e);
             }
